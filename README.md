@@ -4,15 +4,21 @@ User Job Matcher is a command line utility that matches users to jobs based on c
 
 ## Installation
 
-Navigate to the project directory
+Clone the project
 
 ```
+git clone https://github.com/ericauv/user-job-matcher.git
+```
+
+Navigate to the project directory
+
+```bash
 cd user-job-matcher
 ```
 
-Use the package manager [npm](https://www.npmjs.com/get-npm) to install foobar.
+Use the package manager [npm](https://www.npmjs.com/get-npm) to install dependencies.
 
-```bash
+```
 npm install
 ```
 
