@@ -82,10 +82,13 @@ function printMatchedJobs(userId: UserId, matchedJobs: IJob[]): void {
   }
 }
 
+/**
+ *
+ *
+ * @param {IJob[]} jobs Array of jobs
+ * @returns {IDictionary<IJob>} Dictionary indexed by job.id, containing all jobs in [jobs]
+ */
 function getJobIdDictionaryOfJob(jobs: IJob[]): IDictionary<IJob> {
-  // return an object containing all jobs in [jobs] with
-  // key = job.id (as a string)
-  // value = job
   const jobDictionary: IDictionary<IJob> = {};
   jobs.forEach(job => {
     jobDictionary[`${job.id}`] = { ...job };
@@ -93,10 +96,13 @@ function getJobIdDictionaryOfJob(jobs: IJob[]): IDictionary<IJob> {
   return jobDictionary;
 }
 
+/**
+ *
+ *
+ * @param {IJob[]} jobs Array of jobs
+ * @returns {IDictionary<JobId[]>} Dictionary indexed by tag, containing array of job ids that contain tag
+ */
 function getTagDictionaryOfJobIds(jobs: IJob[]): IDictionary<JobId[]> {
-  // Returns an object with
-  // key = tag
-  // value = array of jobIds for jobs whose tags contain [tag]
   const tagDictionaryOfJobIds: IDictionary<JobId[]> = {};
 
   jobs.forEach(job => {
@@ -116,8 +122,8 @@ function getTagDictionaryOfJobIds(jobs: IJob[]): IDictionary<JobId[]> {
  *
  *
  * @param {Tag[]} userTags a user's tags
- * @param {IDictionary<JobId[]>} tagDictionaryOfJobIds JobIds indexed by Tag
- * @returns {IDictionary<number>} Dictionary of count of tags in common a given job has with userTags, indexed by JobId
+ * @param {IDictionary<JobId[]>} tagDictionaryOfJobIds Dictionary indexed by tag containing array of jobIds of jobs that contain the tag
+ * @returns {IDictionary<number>} Dictionary indexed by JobId, containing of count of tags in common a given job has with userTags
  */
 function getJobIdDictionaryOfCommonTagCount(
   userTags: Tag[],
